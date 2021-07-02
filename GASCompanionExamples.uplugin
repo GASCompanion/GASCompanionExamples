@@ -1,0 +1,30 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "0.0.2",
+	"FriendlyName": "GASCompanionExamples",
+	"Description": "GAS Companion LaunchPad Example maps",
+	"Category": "Gameplay",
+	"CreatedBy": "Mickael Daniel <mklabs>",
+	"CreatedByURL": "https://mklabs.github.io",
+	"DocsURL": "https://gascompanion.github.io",
+	"MarketplaceURL": "",
+	"SupportURL": "https://discord.gg/d4rs4vcX6t",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": true,
+	"Modules": [
+		{
+			"Name": "GASCompanionExamples",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "GASCompanion",
+			"Enabled": true
+		}
+	]
+}
