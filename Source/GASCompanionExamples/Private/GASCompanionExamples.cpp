@@ -46,7 +46,7 @@ void FGASCompanionExamplesModule::StartupModule()
 	GSCLaunchPadData::RegisterItem(
 		"AGR Pro Integration Example",
 		"Because AGR Pro is pretty cool",
-		"Same map as GAS Companion Playground but using a Character setup with AGR Pro for locomotion, using the free Animation Starter Pack from Epic.\n\nThe Character has abilities to fire projectiles and damage actors in the level.",
+		"Same map as GAS Companion Playground but using a Character setup with AGR Pro for locomotion, using the free Animation Starter Pack from Epic.\n\nThe Character has examples for Jump and Sprint abilities.",
 		"LaunchPad.Card.SampleAGR",
 		{
 			FGSCGridItemAction(
@@ -69,7 +69,7 @@ void FGASCompanionExamplesModule::StartupModule()
 				},
 				SampleAGRManager
 			),
-			FGSCGridItemAction(EGSCActionType::Documentation, GetDocumentationURL("/projectile-ability"))
+			FGSCGridItemAction(EGSCActionType::Documentation, GetDocumentationURL("/launch-pad"))
 		}
 	);
 
