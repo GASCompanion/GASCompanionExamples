@@ -38,7 +38,10 @@ public class GASCompanionExamples : ModuleRules
 				"Engine",
 				"Slate",
 				"SlateCore",
-				"GASCompanionEditor"
+				"GASCompanionEditor",
+				"GASCompanion",
+				"GameplayTags",
+				"GameplayAbilities"
 				// ... add private dependencies that you statically link with here ...
 			}
 			);

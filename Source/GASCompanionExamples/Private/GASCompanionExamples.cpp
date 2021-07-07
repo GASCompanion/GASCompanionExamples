@@ -12,12 +12,13 @@
 void FGASCompanionExamplesModule::StartupModule()
 {
 	// This code will execute after your module is loaded into memory; the exact timing is specified in the .uplugin file per-module
+	UE_LOG(LogTemp, Warning, TEXT("FGASCompanionExamplesModule::StartupModule"))
 
 	const TSubclassOf<AGSCSampleManager> SampleAGRManager = StaticLoadClass(UObject::StaticClass(), nullptr, TEXT("/GASCompanionExamples/Examples/Shared/SampleManagers/BP_AGRPro_SampleManager.BP_AGRPro_SampleManager_C"));
 	const TSubclassOf<AGSCSampleManager> SamplePlaygroundManager = StaticLoadClass(UObject::StaticClass(), nullptr, TEXT("/GASCompanionExamples/Examples/Shared/SampleManagers/BP_Playground_SampleManager.BP_Playground_SampleManager_C"));
+	const TSubclassOf<AGSCSampleManager> SampleCustomHUDManager = StaticLoadClass(UObject::StaticClass(), nullptr, TEXT("/GASCompanionExamples/Examples/Shared/SampleManagers/BP_CustomHUD_SampleManager.BP_CustomHUD_SampleManager_C"));
 	const TSubclassOf<AGSCSampleManager> SampleParagonCountessManager = StaticLoadClass(UObject::StaticClass(), nullptr, TEXT("/GASCompanionExamples/Examples/Shared/SampleManagers/BP_ParagonCountess_SampleManager.BP_ParagonCountess_SampleManager_C"));
 
-	UE_LOG(LogTemp, Warning, TEXT("FGASCompanionExamplesModule::StartupModule"))
 	GSCLaunchPadData::RegisteredItems.Empty();
 
 	GSCLaunchPadData::RegisterItem(
@@ -33,19 +34,30 @@ void FGASCompanionExamplesModule::StartupModule()
 				{},
 				SamplePlaygroundManager
 			),
+			FGSCGridItemAction(EGSCActionType::Documentation,GetDocumentationURL("/quick-start"))
+		}
+	);
+
+	GSCLaunchPadData::RegisterItem(
+		"Custom HUD Example",
+		"",
+		"This example map demonstrate the use of a custom UI and specific HUD widget. It shows how GAS Companion HUD UserWidget can be used to listen for Gameplay Attributes, Gameplay Tags, and Gameplay Effects changes, as well as Cooldown Start / End.\n\nIncludes 3 basic abilities: Teleport (or dash), Blink and Double Jump.",
+		"LaunchPad.Card.PowerButton",
+		{
 			FGSCGridItemAction(
-				EGSCActionType::Documentation,
-				GetDocumentationURL("/quick-start"),
-				"",
+				EGSCActionType::OpenSample,
+				"/GASCompanionExamples/Examples/CustomHUD/Maps/CustomHUD_Example_Map",
+				"/GASCompanionExamples/Examples/CustomHUD",
 				{},
-				nullptr
-			)
+				SampleCustomHUDManager
+			),
+			FGSCGridItemAction(EGSCActionType::Documentation, GetDocumentationURL("/working-with-ui"))
 		}
 	);
 
 	GSCLaunchPadData::RegisterItem(
 		"AGR Pro Integration Example",
-		"Because AGR Pro is pretty cool",
+		"",
 		"Same map as GAS Companion Playground but using a Character setup with AGR Pro for locomotion, using the free Animation Starter Pack from Epic.\n\nThe Character has examples for Jump and Sprint abilities.",
 		"LaunchPad.Card.SampleAGR",
 		{
