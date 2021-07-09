@@ -10,7 +10,7 @@
 void FGASCompanionExamplesModule::StartupModule()
 {
 	// This code will execute after your module is loaded into memory; the exact timing is specified in the .uplugin file per-module
-	UE_LOG(LogTemp, Warning, TEXT("FGASCompanionExamplesModule StartupModule"))
+	UE_LOG(LogTemp, Display, TEXT("FGASCompanionExamplesModule StartupModule"))
 
 	// FCoreDelegates::OnFEngineLoopInitComplete
 	FCoreDelegates::OnFEngineLoopInitComplete.AddRaw(this, &FGASCompanionExamplesModule::SetupLaunchPadItems);
@@ -24,7 +24,7 @@ void FGASCompanionExamplesModule::ShutdownModule()
 
 void FGASCompanionExamplesModule::SetupLaunchPadItems()
 {
-	UE_LOG(LogTemp, Warning, TEXT("FGASCompanionExamplesModule SetupLaunchPadItems"))
+	UE_LOG(LogTemp, Display, TEXT("FGASCompanionExamplesModule SetupLaunchPadItems"))
 
 	const TSharedPtr<IGSCEditorInterface> EditorInterface = IGSCEditorInterface::Get();
 	if (!EditorInterface.IsValid()) {
