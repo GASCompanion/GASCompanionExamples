@@ -13,5 +13,7 @@ public:
 	virtual void StartupModule() override;
 	virtual void ShutdownModule() override;
 
-	FString GetDocumentationURL(FString InPath);
+	virtual void SetupLaunchPadItems();
+
+	static FString GetDocumentationURL(FString InPath);
 };

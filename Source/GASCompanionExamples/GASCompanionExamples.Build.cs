@@ -37,8 +37,9 @@ public class GASCompanionExamples : ModuleRules
 				"CoreUObject",
 				"Engine",
 				"Slate",
+				"InputCore",
 				"SlateCore",
-				"GASCompanionEditor",
+				"UMG",
 				"GASCompanion",
 				"GameplayTags",
 				"GameplayAbilities"
