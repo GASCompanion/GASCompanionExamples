@@ -17,12 +17,9 @@ public:
 	/** The 'Name' column is the same as the ActionKeyName */
 
 	/** Localized Text for the given ActionKeyName */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Fires of Old|UI")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="GSC|UI")
 	FText ActionKeyText;
 
-	// UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Fires of Old|UI")
-	// TSoftObjectPtr<UTexture2D> ActionIcon;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Fires of Old|UI")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="GSC|UI")
 	UTexture2D* ActionIcon;
 };

@@ -32,13 +32,9 @@ void FGASCompanionExamplesModule::SetupLaunchPadItems()
 		return;
 	}
 
-	const TSubclassOf<AGSCExampleMapManager> SampleAGRManager = StaticLoadClass(UObject::StaticClass(), nullptr, TEXT("/GASCompanionExamples/Examples/Shared/SampleManagers/BP_AGRPro_SampleManager.BP_AGRPro_SampleManager_C"));
-	const TSubclassOf<AGSCExampleMapManager> SamplePlaygroundManager = StaticLoadClass(UObject::StaticClass(), nullptr, TEXT("/GASCompanionExamples/Examples/Shared/SampleManagers/BP_Playground_SampleManager.BP_Playground_SampleManager_C"));
-	const TSubclassOf<AGSCExampleMapManager> SampleCustomHUDManager = StaticLoadClass(UObject::StaticClass(), nullptr, TEXT("/GASCompanionExamples/Examples/Shared/SampleManagers/BP_CustomHUD_SampleManager.BP_CustomHUD_SampleManager_C"));
-	const TSubclassOf<AGSCExampleMapManager> SampleParagonCountessManager = StaticLoadClass(UObject::StaticClass(), nullptr, TEXT("/GASCompanionExamples/Examples/Shared/SampleManagers/BP_ParagonCountess_SampleManager.BP_ParagonCountess_SampleManager_C"));
-
 	EditorInterface->ResetLaunchPadItems();
 
+	const TSubclassOf<AGSCExampleMapManager> SamplePlaygroundManager = StaticLoadClass(UObject::StaticClass(), nullptr, TEXT("/GASCompanionExamples/Examples/Shared/SampleManagers/BP_Playground_SampleManager.BP_Playground_SampleManager_C"));
 	EditorInterface->RegisterLaunchPadItem(
 		"GAS Companion Playground",
 		"",
@@ -56,6 +52,7 @@ void FGASCompanionExamplesModule::SetupLaunchPadItems()
 		}
 	);
 
+	const TSubclassOf<AGSCExampleMapManager> SampleCustomHUDManager = StaticLoadClass(UObject::StaticClass(), nullptr, TEXT("/GASCompanionExamples/Examples/Shared/SampleManagers/BP_CustomHUD_SampleManager.BP_CustomHUD_SampleManager_C"));
 	EditorInterface->RegisterLaunchPadItem(
 		"Custom HUD Example",
 		"",
@@ -74,6 +71,7 @@ void FGASCompanionExamplesModule::SetupLaunchPadItems()
 
 	);
 
+	const TSubclassOf<AGSCExampleMapManager> SampleAGRManager = StaticLoadClass(UObject::StaticClass(), nullptr, TEXT("/GASCompanionExamples/Examples/Shared/SampleManagers/BP_AGRPro_SampleManager.BP_AGRPro_SampleManager_C"));
 	EditorInterface->RegisterLaunchPadItem(
 		"AGR Pro Integration Example",
 		"",
@@ -104,6 +102,38 @@ void FGASCompanionExamplesModule::SetupLaunchPadItems()
 		}
 	);
 
+	const TSubclassOf<AGSCExampleMapManager> SampleALSManager = StaticLoadClass(UObject::StaticClass(), nullptr, TEXT("/GASCompanionExamples/Examples/Shared/SampleManagers/BP_ALS_SampleManager.BP_ALS_SampleManager_C"));
+	EditorInterface->RegisterLaunchPadItem(
+		"ALS Integration Example",
+		"",
+		"Based on ALS-Community plugin (ALSV4_CPP). Same map as ALS v4, but using GASCompanionExamples plugin acting as a bridge between GAS (using Companion) and ALS.\n\nThe map has examples for Jump and Combo abilities.",
+		"LaunchPad.Card.SampleALS",
+		{
+			FGSCLaunchPadItemAction(
+				EGSCLaunchPadActionType::OpenSample,
+				"/GASCompanionExamples/Examples/ALS/Maps/GSC_ALS_Example_DemoLevel",
+				"/GASCompanionALS",
+				{
+					FGSCLaunchPadItemDependency(
+						"ALS-Community (ALSV4_CPP)",
+						"ALSV4_CPP",
+						"https://github.com/dyanikoglu/ALS-Community",
+						EGSCLaunchPadDependencyType::Module
+					),
+					FGSCLaunchPadItemDependency(
+						"GASCompanionALS",
+						"GASCompanionALS",
+						"https://github.com/GASCompanion/GASCompanionALS",
+						EGSCLaunchPadDependencyType::Module
+					),
+				},
+				SampleALSManager
+			),
+			FGSCLaunchPadItemAction(EGSCLaunchPadActionType::Documentation, "https://github.com/GASCompanion/GASCompanionALS")
+		}
+	);
+
+	const TSubclassOf<AGSCExampleMapManager> SampleParagonCountessManager = StaticLoadClass(UObject::StaticClass(), nullptr, TEXT("/GASCompanionExamples/Examples/Shared/SampleManagers/BP_ParagonCountess_SampleManager.BP_ParagonCountess_SampleManager_C"));
 	EditorInterface->RegisterLaunchPadItem(
 		"Paragon Countess: Melee Combo Ability",
 		"",
