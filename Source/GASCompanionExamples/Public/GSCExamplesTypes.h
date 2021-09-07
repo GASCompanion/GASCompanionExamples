@@ -6,6 +6,8 @@
 #include "Engine/DataTable.h"
 #include "GSCExamplesTypes.generated.h"
 
+class UTexture2D;
+
 /** Structure that defines an ActionKeyMapping table entry, with their associated on screen display (text or icon) */
 USTRUCT(BlueprintType)
 struct FGSCExamplesActionKeyMappingsData : public FTableRowBase

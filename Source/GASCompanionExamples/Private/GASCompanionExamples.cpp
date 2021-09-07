@@ -1,9 +1,10 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
+// Copyright 2021 Mickael Daniel. All Rights Reserved.
 
 #include "GASCompanionExamples.h"
 
 #include "Core/Editor/GSCEditorInterface.h"
 #include "Core/Editor/GSCExampleMapManager.h"
+#include "Misc/CoreDelegates.h"
 
 #define LOCTEXT_NAMESPACE "FGASCompanionExamplesModule"
 
