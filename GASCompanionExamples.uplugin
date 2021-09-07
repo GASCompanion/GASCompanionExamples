@@ -1,7 +1,7 @@
 {
 	"FileVersion": 3,
 	"Version": 1,
-	"VersionName": "2.1.1",
+	"VersionName": "3.0.0",
 	"FriendlyName": "GASCompanionExamples",
 	"Description": "GAS Companion LaunchPad Example maps",
 	"Category": "Gameplay",
@@ -10,7 +10,7 @@
 	"DocsURL": "https://gascompanion.github.io",
 	"MarketplaceURL": "",
 	"SupportURL": "https://discord.gg/d4rs4vcX6t",
-	"EngineVersion": "4.26.0",
+	"EngineVersion": "4.27.0",
 	"CanContainContent": true,
 	"IsBetaVersion": false,
 	"IsExperimentalVersion": false,
