@@ -2,7 +2,6 @@
 
 
 #include "Attributes/XPAttributeSet.h"
-#include "Actors/Characters/GSCCharacterBase.h"
 #include "GameplayEffectExtension.h"
 #include "Net/UnrealNetwork.h"
 
@@ -33,48 +32,28 @@ void UXPAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallback
 {
     Super::PostGameplayEffectExecute(Data);
 
-    AGSCCharacterBase* SourceCharacter = nullptr;
-    AGSCCharacterBase* TargetCharacter = nullptr;
-    GetCharactersFromContext(Data, SourceCharacter, TargetCharacter);
+	FGSCAttributeSetExecutionData ExecutionData;
+	GetExecutionDataFromMod(Data, ExecutionData);
 
-    const FGameplayTagContainer SourceTags = GetSourceTagsFromContext(Data);
-    const FGameplayEffectContextHandle Context = Data.EffectSpec.GetContext();
+	AActor* SourceActor = ExecutionData.SourceActor;
+	AActor* TargetActor = ExecutionData.TargetActor;
 
-    // Get Minimum Clamp value for this attribute, if it is available
-    const float ClampMinimumValue = GetClampMinimumValueFor(Data.EvaluatedData.Attribute);
+	// And cast SourceActor / TargetActor to whatever Character classes you may be using and need access to
 
-    // Compute the delta between old and new, if it is available
-    float DeltaValue = 0;
-    if (Data.EvaluatedData.ModifierOp == EGameplayModOp::Type::Additive)
-    {
-        // If this was additive, store the raw delta value to be passed along later
-        DeltaValue = Data.EvaluatedData.Magnitude;
-    }
+    const FGameplayTagContainer SourceTags = ExecutionData.SourceTags;
+    const FGameplayEffectContextHandle Context = ExecutionData.Context;
 
-    // Set clamping or handling or "meta" attributes here (like damages)
-
-    // TODO: Generate PostGameplayEffectExecute content from attributes list as input
-    // if (Data.EvaluatedData.Attribute == GetHealthAttribute())
-    // {
-    //     // Handle other health changes. Health loss should go through Damage meta attribute
-    //     SetHealth(FMath::Clamp(GetHealth(), ClampMinimumValue, GetMaxHealth()));
-    //
-    //     if (TargetCharacter)
-    //     {
-    //         TargetCharacter->HandleAttributeChange(GetHealthAttribute(), DeltaValue, SourceTags);
-    //         TargetCharacter->HandleHealthChange(DeltaValue, SourceTags);
-    //     }
-    // }
+	// ...
 }
 
 void UXPAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
-        
+
     DOREPLIFETIME_CONDITION_NOTIFY(UXPAttributeSet, CurrentXP, COND_None, REPNOTIFY_Always);
-    
+
     DOREPLIFETIME_CONDITION_NOTIFY(UXPAttributeSet, NextLevelXPThreshold, COND_None, REPNOTIFY_Always);
-    
+
     DOREPLIFETIME_CONDITION_NOTIFY(UXPAttributeSet, Level, COND_None, REPNOTIFY_Always);
 }
 

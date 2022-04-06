@@ -21,5 +21,5 @@ public:
 	FText ActionKeyText;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="GSC|UI")
-	UTexture2D* ActionIcon;
+	UTexture2D* ActionIcon = nullptr;
 };
