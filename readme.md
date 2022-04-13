@@ -1,5 +1,7 @@
 ## GASCompanion Examples
 
+**Deprecated and no longer used**
+
 > GAS Companion LaunchPad Example maps.
 
 Plugins that works in tandem with GAS Companion LaunchPad to register items.
